@@ -45,7 +45,6 @@ namespace LeastCostMethod
         
         static async Task Main(string[] args)
         {
-            var dasd = Convert.ToDecimal("10", CultureInfo.InvariantCulture);
             decimal[] headerX;
             decimal[] headerY;
             decimal[,] costsMatrix;
@@ -65,13 +64,13 @@ namespace LeastCostMethod
             }
             
             CostsTable costsTable = new(headerX, headerY, costsMatrix);
-            LeastCostMoveCommand leastCostMoveCommand = new();
-            
+            LeastCostMoveIterator leastCostMoveIterator = new();
+
             Console.WriteLine(costsTable.LeastCostTableToString());
             Console.ReadKey();
             Console.Clear();
             
-            while (leastCostMoveCommand.Move(costsTable))
+            while (leastCostMoveIterator.NextMove(costsTable))
             {
                 Logger.Log(costsTable.LeastCostTableToString());
                 Console.ReadKey();

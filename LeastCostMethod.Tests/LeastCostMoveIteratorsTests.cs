@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace LeastCostMethod.Tests
 {
-    public class Tests
+    public class LeastCostMoveIteratorsTests
     {
         [SetUp]
         public void Setup()
@@ -13,9 +13,9 @@ namespace LeastCostMethod.Tests
         public void IsTestMatrixReturn230()
         {
             CostsTable costsTable = new(CreateTestHeadersX(), CreateTestHeadersY(), CreateTestCosts());
-            LeastCostMoveCommand leastCostMoveCommand = new();
+            LeastCostMoveIterator leastCostMoveIterator = new();
             
-            while (leastCostMoveCommand.Move(costsTable))
+            while (leastCostMoveIterator.NextMove(costsTable))
             {
             }
             

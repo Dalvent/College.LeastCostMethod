@@ -2,14 +2,14 @@
 
 namespace LeastCostMethod
 {
-    public class LeastCostMoveCommand
+    public class LeastCostMoveIterator
     {
-        public bool Move(CostsTable costsTable)
+        public bool NextMove(CostsTable costsTable)
         {
             var minActiveCell = GetMinCellIndexes(costsTable);
             if (minActiveCell == null)
                 return false;
-            
+
             FillCellWithHeadersValues(costsTable, minActiveCell.Item1, minActiveCell.Item2);
             return true;
         }
